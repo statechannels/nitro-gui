@@ -6,8 +6,8 @@ UI component demos deployed here: https://nitro-storybook.netlify.app/
 
 ## Packages
 
-- package `site` contains the web UI ([readme](./packages/site/README.md))
-- package `nitro-rpc-client` contains a typescript library for communicating with go-nitro's RPC api. ([readme](./packages/nitro-rpc-client/readme.md))
+- package [`site`](./packages/site) contains the web UI
+- package [`nitro-rpc-client`](./packages/nitro-rpc-client) contains a typescript library (and CLI tool) for communicating with go-nitro's RPC api. 
 
 ## Storybook
 
