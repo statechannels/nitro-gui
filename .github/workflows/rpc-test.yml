@@ -26,5 +26,6 @@ jobs:
 
 
       - name: Launch Address request using CLI tool and test against expectations
-        run: npm exec -c 'nitro-rpc-client addresss' | grep -q '0xAAA6628Ec44A8a742987EF3A114dDFE2D4F7aDCE' || echo "did not find expected address" && exit 1
+        run: test-against-server.sh
+        shell: bash
         working-directory: ./packages/nitro-rpc-client
