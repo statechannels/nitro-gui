@@ -24,6 +24,8 @@ jobs:
         run: go run . &> output.log &
         working-directory: code/go-nitro
 
+      - name: Install dependencies
+        run: yarn ci
 
       - name: Launch Address request using CLI tool and test against expectations
         run: bash ./test-against-server.sh
