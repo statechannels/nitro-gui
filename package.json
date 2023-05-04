@@ -1,6 +1,7 @@
 {
   "name": "nitro-gui",
   "version": "0.0.1",
+  "private": true,
   "description": "HTML/JS Front-end for go-nitro statechannel network",
   "homepage": "https://statechannels.org",
   "bugs": {
@@ -15,5 +16,5 @@
   "workspaces": [
     "packages/*"
   ],
-  "private": true
+  "packageManager": "yarn@3.5.1"
 }
