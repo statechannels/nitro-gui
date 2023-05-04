@@ -24,6 +24,10 @@ jobs:
           repository: "statechannels/go-nitro"
           path: "code/go-nitro"
 
+      - name: Tidy
+        run: go mod tidy
+        working-directory: code/go-nitro
+
         # Start up a chain for the RPC server to work against
       - name: Run anvil chain
         run: anvil --host 0.0.0.0 --chain-id 1337 &
