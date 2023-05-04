@@ -14,16 +14,23 @@ jobs:
 
       - uses: actions/checkout@v3
 
+      # Install foundry so we can use it to run a chain instance
+      - name: Install Foundry
+        uses: foundry-rs/foundry-toolchain@v1
+
       # Get go-nitro
       - uses: actions/checkout@v3
         with:
           repository: "statechannels/go-nitro"
           path: "code/go-nitro"
-      
+
+        # Start up a chain for the RPC server to work against
+      - name: Run anvil chain
+        run: anvil --host 0.0.0.0 --chain-id 1337 &
+
       - name: Run go-nitro RPC server
         run: go run . &> output.log &
         working-directory: code/go-nitro
-
 
       - name: Install dependencies
         run: yarn
