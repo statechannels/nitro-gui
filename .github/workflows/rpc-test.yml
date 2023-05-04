@@ -26,8 +26,7 @@ jobs:
 
 
       - name: Launch Address request using CLI tool and test against expectations
-        run: ./test-against-server.sh
-        shell: bash
+        run: bash ./test-against-server.sh
         working-directory: ./packages/nitro-rpc-client
 
       - name: Archive logs
