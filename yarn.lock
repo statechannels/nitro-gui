@@ -2533,6 +2533,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@statechannels/nitro-rpc-client@0.0.8, @statechannels/nitro-rpc-client@workspace:packages/nitro-rpc-client":
+  version: 0.0.0-use.local
+  resolution: "@statechannels/nitro-rpc-client@workspace:packages/nitro-rpc-client"
+  dependencies:
+    "@statechannels/exit-format": ^0.2.0
+    "@types/node": ^18.15.11
+    "@types/websocket": ^1.0.5
+    "@types/yargs": ^17.0.24
+    axios: ^1.3.6
+    eslint: ^8.21.0
+    eslint-config-prettier: ^8.1.0
+    eslint-plugin-import: ^2.26.0
+    eslint-plugin-jest: ^26.8.2
+    eslint-plugin-jsdoc: ^39.2.9
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^4.2.1
+    eslint-plugin-storybook: ^0.6.11
+    eventemitter3: ^5.0.0
+    json-rpc-2.0: ^1.5.1
+    nats: ^2.13.1
+    prettier: ^2.2.1
+    prettier-plugin-packagejson: ^2.2.18
+    ts-node: ^10.9.1
+    typescript: ^4.7.4
+    websocket: ^1.0.34
+    yargs: ^17.7.1
+  bin:
+    nitro-rpc-client: src/cli.ts
+  languageName: unknown
+  linkType: soft
+
 "@storybook/addon-actions@npm:7.0.7":
   version: 7.0.7
   resolution: "@storybook/addon-actions@npm:7.0.7"
@@ -9077,37 +9108,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"nitro-rpc-client@workspace:packages/nitro-rpc-client":
-  version: 0.0.0-use.local
-  resolution: "nitro-rpc-client@workspace:packages/nitro-rpc-client"
-  dependencies:
-    "@statechannels/exit-format": ^0.2.0
-    "@types/node": ^18.15.11
-    "@types/websocket": ^1.0.5
-    "@types/yargs": ^17.0.24
-    axios: ^1.3.6
-    eslint: ^8.21.0
-    eslint-config-prettier: ^8.1.0
-    eslint-plugin-import: ^2.26.0
-    eslint-plugin-jest: ^26.8.2
-    eslint-plugin-jsdoc: ^39.2.9
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^4.2.1
-    eslint-plugin-storybook: ^0.6.11
-    eventemitter3: ^5.0.0
-    json-rpc-2.0: ^1.5.1
-    nats: ^2.13.1
-    prettier: ^2.2.1
-    prettier-plugin-packagejson: ^2.2.18
-    ts-node: ^10.9.1
-    typescript: ^4.7.4
-    websocket: ^1.0.34
-    yargs: ^17.7.1
-  bin:
-    nitro-rpc-client: src/cli.ts
-  languageName: unknown
-  linkType: soft
-
 "nkeys.js@npm:1.0.5":
   version: 1.0.5
   resolution: "nkeys.js@npm:1.0.5"
@@ -10734,6 +10734,7 @@ __metadata:
   resolution: "site@workspace:packages/site"
   dependencies:
     "@material-ui/core": ^4.12.4
+    "@statechannels/nitro-rpc-client": 0.0.8
     "@storybook/addon-essentials": ^7.0.7
     "@storybook/addon-interactions": ^7.0.7
     "@storybook/addon-links": ^7.0.7
