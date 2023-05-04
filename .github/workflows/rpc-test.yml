@@ -1,16 +1,17 @@
-name: Run Testground
+name: RPC Test
 
 on:
   pull_request:
     paths: ["packages/nitro-rpc-client", ".github/workflows/rpc-test.yml"]
   workflow_dispatch:
 jobs:
-  run-testground:
+  run-rpc-test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/setup-go@v3
         with:
           go-version: "^1.20.0"
+
       - uses: actions/checkout@v3
 
       # Get go-nitro
@@ -20,9 +21,10 @@ jobs:
           path: "code/go-nitro"
       
       - name: Run go-nitro RPC server
-      - working-directory: code/go-nitro
-      - run: go run . &
+        run: go run . &
+        working-directory: code/go-nitro
+
 
       - name: Launch Address request using CLI tool and test against expectations
-      - working-directory: ./packages/nitro-rpc-client
-      - run: npm exec -c 'nitro-rpc-client addresss' | grep -q '0xAAA6628Ec44A8a742987EF3A114dDFE2D4F7aDCE' || echo "did not find expected address" && exit 1
+        run: npm exec -c 'nitro-rpc-client addresss' | grep -q '0xAAA6628Ec44A8a742987EF3A114dDFE2D4F7aDCE' || echo "did not find expected address" && exit 1
+        working-directory: ./packages/nitro-rpc-client
