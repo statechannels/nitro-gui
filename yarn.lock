@@ -4318,33 +4318,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@yarnpkg/fslib@npm:^3.0.0-rc.43":
-  version: 3.0.0-rc.43
-  resolution: "@yarnpkg/fslib@npm:3.0.0-rc.43"
-  dependencies:
-    tslib: ^2.4.0
-  checksum: dfe020205d32d92f60b12a614051d89e9c3ab4f00002f3888595a9388a9e03b90449628596c3475302ee87f0bcb546ffec3df5edcc499fa115d11a93ed902195
-  languageName: node
-  linkType: hard
-
-"@yarnpkg/plugin-workspace-tools@npm:^4.0.0-rc.43":
-  version: 4.0.0-rc.43
-  resolution: "@yarnpkg/plugin-workspace-tools@npm:4.0.0-rc.43"
-  dependencies:
-    "@yarnpkg/fslib": ^3.0.0-rc.43
-    clipanion: ^3.2.0-rc.10
-    micromatch: ^4.0.2
-    p-limit: ^2.2.0
-    tslib: ^2.4.0
-    typanion: ^3.3.0
-  peerDependencies:
-    "@yarnpkg/cli": ^4.0.0-rc.43
-    "@yarnpkg/core": ^4.0.0-rc.43
-    "@yarnpkg/plugin-git": ^3.0.0-rc.43
-  checksum: d6cd18ac76aa439319c9dc9c3904c113b9b2a082cfd39ce334e7a1a270d49c78eb40a43256deac9751275cf28123d86fbf55f94560f94739f25e322177f555fd
-  languageName: node
-  linkType: hard
-
 "abbrev@npm:^1.0.0":
   version: 1.1.1
   resolution: "abbrev@npm:1.1.1"
@@ -5204,17 +5177,6 @@ __metadata:
     "@colors/colors":
       optional: true
   checksum: 09897f68467973f827c04e7eaadf13b55f8aec49ecd6647cc276386ea660059322e2dd8020a8b6b84d422dbdd619597046fa89cbbbdc95b2cea149a2df7c096c
-  languageName: node
-  linkType: hard
-
-"clipanion@npm:^3.2.0-rc.10":
-  version: 3.2.0
-  resolution: "clipanion@npm:3.2.0"
-  dependencies:
-    typanion: ^3.8.0
-  peerDependencies:
-    typanion: "*"
-  checksum: e28e6f0d48aecff86097823c604aa486082d76d2a5d3abc71069a0d9f3338af769fd7c6634b2f444c5b1aac0743b503325cc0b30552c094c01ebc602631b273d
   languageName: node
   linkType: hard
 
@@ -8844,7 +8806,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"micromatch@npm:^4.0.2, micromatch@npm:^4.0.4":
+"micromatch@npm:^4.0.4":
   version: 4.0.5
   resolution: "micromatch@npm:4.0.5"
   dependencies:
@@ -9143,8 +9105,6 @@ __metadata:
 "nitro-gui@workspace:.":
   version: 0.0.0-use.local
   resolution: "nitro-gui@workspace:."
-  dependencies:
-    "@yarnpkg/plugin-workspace-tools": ^4.0.0-rc.43
   languageName: unknown
   linkType: soft
 
@@ -11422,13 +11382,6 @@ __metadata:
   version: 1.0.3
   resolution: "tweetnacl@npm:1.0.3"
   checksum: e4a57cac188f0c53f24c7a33279e223618a2bfb5fea426231991652a13247bea06b081fd745d71291fcae0f4428d29beba1b984b1f1ce6f66b06a6d1ab90645c
-  languageName: node
-  linkType: hard
-
-"typanion@npm:^3.3.0, typanion@npm:^3.8.0":
-  version: 3.12.1
-  resolution: "typanion@npm:3.12.1"
-  checksum: a2e26fa216f8a1dbd2ffbaacb75b1e2dc042a0356e9702fba05a968cad95d9f661b24e37f6c6d8c3adad2c8582c99fca4826ff26a2d07cd2ae617ea87e6187eb
   languageName: node
   linkType: hard
 
