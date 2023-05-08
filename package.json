@@ -16,5 +16,8 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "yarn@3.5.1"
+  "packageManager": "yarn@3.5.1",
+  "devDependencies": {
+    "@yarnpkg/plugin-workspace-tools": "^4.0.0-rc.43"
+  }
 }
