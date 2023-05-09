@@ -1,44 +1,55 @@
+/* global module */
 module.exports = {
-  root: true,
-  parserOptions: {
-    sourceType: 'module',
+  ignorePatterns: [
+    "!.prettierrc.js",
+    "**/!.eslintrc.js",
+    "**/dist*/",
+    "**/*__GENERATED__*",
+    "**/build",
+    "**/public",
+    "**/.cache",
+    "**/styles",
+  ],
+  parser: "@typescript-eslint/parser",
+  plugins: [
+    "@typescript-eslint",
+    "prettier",
+    // We enforce certain rules on how imports are handled
+    "import",
+  ],
+  extends: [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+  ],
+  rules: {
+    "no-self-compare": "error",
+    "import/order": [
+      1,
+      {
+        groups: [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling",
+          "index",
+        ],
+        "newlines-between": "always",
+      },
+    ],
   },
-
-  extends: ['@metamask/eslint-config'],
-
   overrides: [
     {
-      files: ['**/*.js'],
-      extends: ['@metamask/eslint-config-nodejs'],
+      files: ["**/*.ts"],
+      extends: ["plugin:@typescript-eslint/recommended"],
+      rules: {},
     },
-
     {
-      files: ['**/*.{ts,tsx}'],
-      extends: ['@metamask/eslint-config-typescript'],
-      rules: {
-        '@typescript-eslint/consistent-type-definitions': ['error', 'type'],
-      },
+      files: ["./src/**/*.ts"],
+      rules: {},
     },
-
-    {
-      files: ['**/*.test.ts', '**/*.test.js'],
-      extends: ['@metamask/eslint-config-jest'],
-      rules: {
-        '@typescript-eslint/no-shadow': [
-          'error',
-          { allow: ['describe', 'expect', 'it'] },
-        ],
-      },
-    },
-  ],
-
-  ignorePatterns: [
-    '!.prettierrc.js',
-    '**/!.eslintrc.js',
-    '**/dist*/',
-    '**/*__GENERATED__*',
-    '**/build',
-    '**/public',
-    '**/.cache',
   ],
 };
