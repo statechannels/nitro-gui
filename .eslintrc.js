@@ -24,6 +24,7 @@ module.exports = {
     "plugin:import/errors",
     "plugin:import/warnings",
     "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
   ],
   rules: {
     "no-self-compare": "error",
@@ -42,15 +43,4 @@ module.exports = {
       },
     ],
   },
-  overrides: [
-    {
-      files: ["**/*.ts"],
-      extends: ["plugin:@typescript-eslint/recommended"],
-      rules: {},
-    },
-    {
-      files: ["./src/**/*.ts"],
-      rules: {},
-    },
-  ],
 };
