@@ -1,5 +1,6 @@
 /* global module */
 module.exports = {
+  root: true,
   ignorePatterns: [
     "!.prettierrc.js",
     "**/!.eslintrc.js",
