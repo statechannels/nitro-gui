@@ -31,9 +31,10 @@ jobs:
         # Start up a chain for the RPC server to work against
       - name: Run anvil chain
         run: anvil --host 0.0.0.0 --chain-id 1337 &
-
+        # TODO: We currently pass in a zeroed address for the adjudicator
+        # If we want to test further functionality we should deploy the adjudicator and pass the address in
       - name: Run go-nitro RPC server
-        run: go run . &> output.log &
+        run: go run . -naaddress 0x0000000000000000000000000000000000000000 -config ./scripts/test-configs/alice.toml &> output.log &
         working-directory: code/go-nitro
 
       - name: Install dependencies
