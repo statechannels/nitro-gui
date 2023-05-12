@@ -28,20 +28,16 @@ jobs:
         run: go mod tidy
         working-directory: code/go-nitro
 
-        # Start up a chain for the RPC server to work against
-      - name: Run anvil chain
-        run: anvil --host 0.0.0.0 --chain-id 1337 &
-        # TODO: We currently pass in a zeroed address for the adjudicator
-        # If we want to test further functionality we should deploy the adjudicator and pass the address in
-      - name: Run go-nitro RPC server
-        run: go run . -naaddress 0x0000000000000000000000000000000000000000 -config ./scripts/test-configs/alice.toml &> output.log &
+      - name: Run go-nitro RPC servers
+        run: go run ./scripts/start-rpc-servers.go &> output.log &
         working-directory: code/go-nitro
 
       - name: Install dependencies
         run: yarn
 
-      - name: Launch Address request using CLI tool and test against expectations
-        run: bash ./scripts/test-against-server.sh
+      - name: Run Create Channels script
+        # TODO: We could write a test specific script that creates channels and checks the results
+        run: npx ts-node ./scripts/client-runner.ts create-channels &> output.log &
         working-directory: ./packages/nitro-rpc-client
 
       - name: Archive logs
