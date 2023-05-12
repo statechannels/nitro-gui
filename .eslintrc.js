@@ -28,6 +28,10 @@ module.exports = {
   ],
   rules: {
     "no-self-compare": "error",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+    ],
     "import/order": [
       1,
       {
