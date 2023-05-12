@@ -34,7 +34,7 @@ jobs:
         # TODO: We currently pass in a zeroed address for the adjudicator
         # If we want to test further functionality we should deploy the adjudicator and pass the address in
       - name: Run go-nitro RPC server
-        run: go run . -naaddress 0x0000000000000000000000000000000000000000 &> output.log &
+        run: go run . -naaddress 0x0000000000000000000000000000000000000000 -config ./scripts/test-configs/alice.toml &> output.log &
         working-directory: code/go-nitro
 
       - name: Install dependencies
