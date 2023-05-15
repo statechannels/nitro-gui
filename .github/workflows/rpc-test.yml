@@ -40,7 +40,7 @@ jobs:
       - name: Run Create Channels script
         # TODO: We could write a test specific script that creates channels and checks the results
         run: npx ts-node ./scripts/client-runner.ts create-channels &> output.log
-        working-directory: ./packages/nitro-rpc-client
+        working-directory: packages/nitro-rpc-client
 
       - name: Archive logs
         if: always()
