@@ -13,6 +13,9 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Building */
+    "outDir": "dist",
+
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
