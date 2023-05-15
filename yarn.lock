@@ -2709,7 +2709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@statechannels/nitro-rpc-client@0.0.8, @statechannels/nitro-rpc-client@workspace:packages/nitro-rpc-client":
+"@statechannels/nitro-rpc-client@workspace:*, @statechannels/nitro-rpc-client@workspace:packages/nitro-rpc-client":
   version: 0.0.0-use.local
   resolution: "@statechannels/nitro-rpc-client@workspace:packages/nitro-rpc-client"
   dependencies:
@@ -10954,7 +10954,7 @@ __metadata:
     "@emotion/react": ^11.11.0
     "@emotion/styled": ^11.11.0
     "@mui/material": ^5.13.0
-    "@statechannels/nitro-rpc-client": 0.0.8
+    "@statechannels/nitro-rpc-client": "workspace:*"
     "@storybook/addon-essentials": ^7.0.7
     "@storybook/addon-interactions": ^7.0.7
     "@storybook/addon-links": ^7.0.7
