@@ -4,9 +4,12 @@ import { NitroRpcClient } from "@statechannels/nitro-rpc-client";
 import { NetworkBalance } from "./components/NetworkBalance";
 import "./App.css";
 import TopBar from "./components/TopBar";
+import { QUERY_KEY } from "./constants";
 
 function App() {
-  const [url, setUrl] = useState("localhost:4005");
+  const url =
+    new URLSearchParams(window.location.search).get(QUERY_KEY) ??
+    "localhost:4005";
   const [nitroClient, setNitroClient] = useState<NitroRpcClient | null>(null);
   const [version, setVersion] = useState("");
   const [address, setAddress] = useState("");
@@ -24,7 +27,7 @@ function App() {
 
   return (
     <>
-      <TopBar url={url} setUrl={setUrl} />
+      <TopBar url={url} />
       <div style={{ display: "flex", justifyContent: "space-around" }}>
         <div className="card">
           <NetworkBalance
