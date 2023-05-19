@@ -4,6 +4,8 @@ This repo contains work toward a web UI for a [nitro](https://github.com/statech
 
 UI component demos deployed here: https://nitro-storybook.netlify.app/
 
+Latest GUI from `main` branch deployed here https://nitro-gui.netlify.app/
+
 ## Packages
 
 - package [`site`](./packages/site) contains the web UI
