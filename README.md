@@ -28,7 +28,7 @@ You will need to spin up:
   - unique rpc port
   - unique channel signing key (a funded account on hardhat will be selected automatically)
 
-And then drive the network by clicking on a button in the dashboard of one of the participants.
+And then drive the network using e.g. the [command line tool](./packages/nitro-rpc-client). You should see changes reflected in the UI. 
 
 The interactions are shown in this diagram:
 
