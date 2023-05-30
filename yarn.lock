@@ -1754,7 +1754,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/cache@npm:^11.10.8, @emotion/cache@npm:^11.11.0":
+"@emotion/cache@npm:*, @emotion/cache@npm:^11.10.8, @emotion/cache@npm:^11.11.0":
   version: 11.11.0
   resolution: "@emotion/cache@npm:11.11.0"
   dependencies:
@@ -1811,7 +1811,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/serialize@npm:^1.1.2":
+"@emotion/serialize@npm:*, @emotion/serialize@npm:^1.1.2":
   version: 1.1.2
   resolution: "@emotion/serialize@npm:1.1.2"
   dependencies:
@@ -1867,7 +1867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/utils@npm:^1.2.1":
+"@emotion/utils@npm:*, @emotion/utils@npm:^1.2.1":
   version: 1.2.1
   resolution: "@emotion/utils@npm:1.2.1"
   checksum: e0b44be0705b56b079c55faff93952150be69e79b660ae70ddd5b6e09fc40eb1319654315a9f34bb479d7f4ec94be6068c061abbb9e18b9778ae180ad5d97c73
@@ -2501,6 +2501,15 @@ __metadata:
   version: 1.1.3
   resolution: "@gar/promisify@npm:1.1.3"
   checksum: 4059f790e2d07bf3c3ff3e0fec0daa8144fe35c1f6e0111c9921bd32106adaa97a4ab096ad7dab1e28ee6a9060083c4d1a4ada42a7f5f3f7a96b8812e2b757c1
+  languageName: node
+  linkType: hard
+
+"@heroicons/react@npm:^2.0.18":
+  version: 2.0.18
+  resolution: "@heroicons/react@npm:2.0.18"
+  peerDependencies:
+    react: ">= 16"
+  checksum: 597e8668818623d568a302e343ef06b69f62ce297c14b88c2ebbfed0c0f00cd85ec44fae33ec8a249931b4e7dcf145743ae3198095a9f4682108de5155f5f4c3
   languageName: node
   linkType: hard
 
@@ -12585,6 +12594,7 @@ __metadata:
   dependencies:
     "@emotion/react": ^11.11.0
     "@emotion/styled": ^11.11.0
+    "@heroicons/react": ^2.0.18
     "@mui/material": ^5.13.0
     "@statechannels/nitro-rpc-client": "workspace:*"
     "@storybook/addon-essentials": ^7.0.7
@@ -12615,6 +12625,7 @@ __metadata:
     react-minimal-pie-chart: ^8.4.0
     sass: ^1.62.1
     storybook: ^7.0.7
+    tss-react: ^4.8.5
     typescript: ^5.0.2
     vite: ^4.3.2
   languageName: unknown
@@ -13315,6 +13326,24 @@ __metadata:
   version: 2.5.2
   resolution: "tslib@npm:2.5.2"
   checksum: 4d3c1e238b94127ed0e88aa0380db3c2ddae581dc0f4bae5a982345e9f50ee5eda90835b8bfba99b02df10a5734470be197158c36f9129ac49fdc14a6a9da222
+  languageName: node
+  linkType: hard
+
+"tss-react@npm:^4.8.5":
+  version: 4.8.5
+  resolution: "tss-react@npm:4.8.5"
+  dependencies:
+    "@emotion/cache": "*"
+    "@emotion/serialize": "*"
+    "@emotion/utils": "*"
+  peerDependencies:
+    "@emotion/react": ^11.4.1
+    "@emotion/server": ^11.4.0
+    react: ^16.8.0 || ^17.0.2 || ^18.0.0
+  peerDependenciesMeta:
+    "@emotion/server":
+      optional: true
+  checksum: c62fcfe04ecd788983b4fa3681bc8bdf39d4b039e49d646fc934637f70c7610d891809cf2b1564758339177b81ee0b0b2124fc51e37c812a512a5672ff153dac
   languageName: node
   linkType: hard
 
