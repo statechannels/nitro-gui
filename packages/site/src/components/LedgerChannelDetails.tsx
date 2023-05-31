@@ -25,6 +25,7 @@ async function getLedgerDetails(
 
   const lockedBalances = paymentChannels.map((pc) => {
     const total = pc.Balance.PaidSoFar + pc.Balance.RemainingFunds;
+
     return {
       budget: total,
       myPercentage: Number(pc.Balance.RemainingFunds / total),
@@ -69,7 +70,7 @@ export default function LedgerChannelDetails({
         lockedBalances={ledgerDetails?.lockedBalances ?? []}
         myBalanceFree={myBalance}
         theirBalanceFree={theirBalance}
-      ></NetworkBalance>
+      />
     </div>
   );
 }
