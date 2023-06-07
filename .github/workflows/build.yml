@@ -19,3 +19,5 @@ jobs:
         run: yarn run build
       - name: Lint everything
         run: yarn run lint
+      - name: Unit test packages
+        run: yarn run test
