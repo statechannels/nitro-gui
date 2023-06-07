@@ -19,7 +19,8 @@
   "scripts": {
     "build": "yarn workspaces foreach -pt run build",
     "lint": "yarn workspaces foreach -pt run lint",
-    "bootstrap": "yarn workspaces foreach -pt run prepack"
+    "bootstrap": "yarn workspaces foreach -pt run prepack",
+    "test": "yarn workspaces foreach -pt run test"
   },
   "packageManager": "yarn@3.5.1"
 }
