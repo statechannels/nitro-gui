@@ -19,7 +19,19 @@ const jsonRpcSchema = {
       additionalProperties: true,
     },
   },
-  optionalProperties: { error: { type: "string", nullable: true } },
+  optionalProperties: {
+    error: {
+      properties: {
+        code: { type: "int32" },
+        message: { type: "string" },
+        data: {
+          properties: {},
+          additionalProperties: true,
+        },
+      },
+      nullable: true,
+    },
+  },
 } as const;
 type JsonRpcSchemaType = JTDDataType<typeof jsonRpcSchema>;
 
