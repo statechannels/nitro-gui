@@ -194,7 +194,7 @@ function getJsonRpcResult(response: unknown): unknown {
  *
  * @param schema - JSON Type Definition
  * @param result - Object to validate
- * @param converstionFn - Function to convert the valiated object to internal type
+ * @param conversionFn - Function to convert the valiated object to internal type
  * @returns A validated object of internal type
  */
 function validateAndConvertResult<
@@ -204,11 +204,11 @@ function validateAndConvertResult<
 >(
   schema: S,
   result: unknown,
-  converstionFn: (result: U) => RPCRequestAndResponses[T][1]["result"]
+  conversionFn: (result: U) => RPCRequestAndResponses[T][1]["result"]
 ): RPCRequestAndResponses[T][1]["result"] {
   const validate = ajv.compile<U>(schema);
   if (validate(result)) {
-    return converstionFn(result);
+    return conversionFn(result);
   }
   throw new Error(
     `Error parsing json rpc result: ${JSON.stringify(
