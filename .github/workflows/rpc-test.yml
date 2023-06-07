@@ -37,6 +37,10 @@ jobs:
       - name: Install dependencies
         run: yarn
 
+      - name: Unit tests
+        run: yarn test
+        working-directory: packages/nitro-rpc-client
+
       - name: Run Create Channels script
         # TODO: We could write a test specific script that creates channels and checks the results
         run: npx ts-node ./scripts/client-runner.ts create-channels -w 300000 &> output.log
