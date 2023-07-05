@@ -20,8 +20,8 @@ func main() {
 		panic(err)
 	}
 
-	http.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
-		http.ServeContent(w, r, "test.pdf", time.Now(), io.NewSectionReader(bytes.NewReader(file), 0, int64(len(file))))
+	http.HandleFunc("/nitro-protocol.pdf", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeContent(w, r, "nitro-protocol.pdf", time.Now(), io.NewSectionReader(bytes.NewReader(file), 0, int64(len(file))))
 	})
 
 	log.Fatal(http.ListenAndServe(":8081", nil))
