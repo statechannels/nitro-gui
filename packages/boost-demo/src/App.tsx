@@ -5,7 +5,7 @@ import axios, { isAxiosError } from "axios";
 import "./App.css";
 
 function App() {
-  const numChunks = 10;
+  const numChunks = 3;
   const length = 403507;
 
   const [gotChunks, setGotChunks] = useState(new Array(numChunks).fill(false));
@@ -41,6 +41,8 @@ function App() {
       setChunkGot(index);
       file[index] = result.data;
     } catch {
+      // TODO check that the status code is 206 Partial Content
+      // It could be 200 OK -- but then we may have the entire file already!
       (e: any) => {
         if (isAxiosError(e)) {
           setErrorText(`${e.message}: ${e.response?.statusText}`);
