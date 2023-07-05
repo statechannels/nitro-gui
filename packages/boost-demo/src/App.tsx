@@ -5,7 +5,7 @@ import axios, { isAxiosError } from "axios";
 import "./App.css";
 
 function App() {
-  const numChunks = 100;
+  const numChunks = 10;
   const length = 403507;
 
   const [gotChunks, setGotChunks] = useState(new Array(numChunks).fill(false));
@@ -66,7 +66,7 @@ function App() {
     window.URL.revokeObjectURL(fileUrl);
   }
 
-  const fetchFile = async () => {
+  const fetchFileChunks = async () => {
     setErrorText("");
     const file = new Array<Int8Array>(numChunks);
     for (let i = 0; i < numChunks; i++) {
@@ -76,10 +76,36 @@ function App() {
     triggerCompleteFileDownload(file);
   };
 
+  const fetchFileConcurrently = async () => {
+    setErrorText("");
+    const file = new Array<Int8Array>(numChunks);
+    const promises = [];
+    for (let i = 0; i < numChunks; i++) {
+      promises.push(getChunk(i, file));
+    }
+    await Promise.all(promises);
+    triggerCompleteFileDownload(file);
+  };
+
+  const fetchFileFull = async () => {
+    setErrorText("");
+    const file = new Array<Int8Array>(numChunks);
+    const result = await axios.get(`http://localhost:8081/nitro-protocol.pdf`, {
+      responseType: "blob", // This lets us download the file
+      headers: {
+        Accept: "*/*", // TODO: Do we need to specify this?
+      },
+    });
+    file[0] = result.data;
+
+    triggerCompleteFileDownload(file);
+  };
   return (
     <Box>
       {gotChunks.map((c) => (c ? "X" : "_"))}
-      <Button onClick={fetchFile}>Fetch</Button>
+      <Button onClick={fetchFileFull}>Fetch</Button>
+      <Button onClick={fetchFileChunks}>FetchChunks</Button>
+      <Button onClick={fetchFileConcurrently}>FetchConcurrent</Button>
       <Box>{errorText}</Box>
     </Box>
   );
