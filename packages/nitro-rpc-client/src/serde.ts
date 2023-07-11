@@ -98,6 +98,26 @@ const paymentSchema = {
 } as const;
 type PaymentSchemaType = JTDDataType<typeof paymentSchema>;
 
+const voucherSchema = {
+  properties: {
+    ChannelId: { type: "string" },
+    Amount: { type: "uint32" },
+    Signature: {
+      type: "string",
+    },
+  },
+} as const;
+type VoucherSchemaType = JTDDataType<typeof voucherSchema>;
+
+const receiveVoucherSchema = {
+  properties: {
+    Total: { type: "string" },
+    Delta: { type: "string" },
+  },
+} as const;
+
+type ReceiveVoucherSchemaType = JTDDataType<typeof receiveVoucherSchema>;
+
 type ResponseSchema =
   | typeof objectiveSchema
   | typeof stringSchema
@@ -105,7 +125,9 @@ type ResponseSchema =
   | typeof ledgerChannelsSchema
   | typeof paymentChannelSchema
   | typeof paymentChannelsSchema
-  | typeof paymentSchema;
+  | typeof paymentSchema
+  | typeof voucherSchema
+  | typeof receiveVoucherSchema;
 
 type ResponseSchemaType =
   | ObjectiveSchemaType
@@ -114,7 +136,9 @@ type ResponseSchemaType =
   | LedgerChannelsSchemaType
   | PaymentChannelSchemaType
   | PaymentChannelsSchemaType
-  | PaymentSchemaType;
+  | PaymentSchemaType
+  | VoucherSchemaType
+  | ReceiveVoucherSchemaType;
 
 /**
  * Validates that the response is a valid JSON RPC response with a valid result
@@ -178,6 +202,26 @@ export function getAndValidateResult<T extends RequestMethod>(
         result,
         (result: PaymentSchemaType) => result
       );
+    case "receive_voucher":
+      return validateAndConvertResult(
+        receiveVoucherSchema,
+        result,
+        (result: ReceiveVoucherSchemaType) => ({
+          Total: BigInt(result.Total),
+          Delta: BigInt(result.Delta),
+        })
+      );
+    case "create_voucher":
+      return validateAndConvertResult(
+        voucherSchema,
+        result,
+        (result: VoucherSchemaType) => {
+          return {
+            ...result,
+          };
+        }
+      );
+
     default:
       throw new Error(`Unknown method: ${method}`);
   }

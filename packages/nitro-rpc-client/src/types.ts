@@ -51,6 +51,14 @@ export type PaymentParams = {
   Amount: number;
   Channel: string;
 };
+
+export type Voucher = {
+  ChannelId: string;
+  // todo: this should be a bigint
+  Amount: number;
+
+  Signature: string;
+};
 type GetChannelRequest = {
   Id: string;
 };
@@ -64,6 +72,10 @@ export type DefundObjectiveRequest = {
 export type ObjectiveResponse = {
   Id: string;
   ChannelId: string;
+};
+export type ReceiveVoucherResult = {
+  Total: bigint;
+  Delta: bigint;
 };
 
 /**
@@ -109,6 +121,13 @@ export type VirtualDefundRequest = JsonRpcRequest<
   DefundObjectiveRequest
 >;
 
+export type CreateVoucherRequest = JsonRpcRequest<
+  "create_voucher",
+  PaymentParams
+>;
+
+export type ReceiveVoucherRequest = JsonRpcRequest<"receive_voucher", Voucher>;
+
 /**
  * RPC Responses
  */
@@ -125,7 +144,8 @@ export type GetAllLedgerChannelsResponse = JsonRpcResponse<LedgerChannelInfo[]>;
 export type GetPaymentChannelsByLedgerResponse = JsonRpcResponse<
   PaymentChannelInfo[]
 >;
-
+export type CreateVoucherResponse = JsonRpcResponse<Voucher>;
+export type ReceiveVoucherResponse = JsonRpcResponse<ReceiveVoucherResult>;
 /**
  * RPC Request/Response map
  * This is a map of all the RPC methods to their request and response types
@@ -148,6 +168,8 @@ export type RPCRequestAndResponses = {
     GetPaymentChannelsByLedgerRequest,
     GetPaymentChannelsByLedgerResponse
   ];
+  create_voucher: [CreateVoucherRequest, CreateVoucherResponse];
+  receive_voucher: [ReceiveVoucherRequest, ReceiveVoucherResponse];
 };
 
 export type RequestMethod = keyof RPCRequestAndResponses;
